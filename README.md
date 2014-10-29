@@ -87,3 +87,8 @@ On received message node sends a payload with its current stored state. E.g.:
 * Expose more LIFX functions as standalone nodes (e.g. waveform, relative and absolute dim)
 * Allow targeting of individual bulbs instead of the whole mesh (i.e. through configuration node?)
 * Connection sharing for multiple nodes (especially on close; there'll probably have to be a global connection singleton)
+
+## See also
+
+* [lifx-alert](https://github.com/TinajaLabs/lifx-alert/) (Node-RED) lets you set red, green or orange color.
+* [hue](https://github.com/node-red/node-red-nodes/tree/master/hardware/hue) (Node-RED) for Phillips Hue.
