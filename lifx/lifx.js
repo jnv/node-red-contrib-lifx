@@ -7,7 +7,7 @@ module.exports = function(RED) {
     function LifxNode(n) {
         var lx = lifx.init();
         var node = this;
-        this.topic = n.topic;
+        var debug = !!n.debug;
         // if(!lx) {
         //     lx = lifx.init();
         // }
@@ -15,7 +15,7 @@ module.exports = function(RED) {
         // Create a RED node
         RED.nodes.createNode(this, n);
 
-        lifx.setDebug(!!n.debug);
+        lifx.setDebug(debug);
         // Set default values from node configuration
         this.state = {
             on: !!n.on,
@@ -26,8 +26,8 @@ module.exports = function(RED) {
             fadeTime: n.fadeTime,
         };
 
-        function setPower(state) {
-            if(state) {
+        function setPower(pwr) {
+            if(pwr) {
                 node.log("Lights on");
                 lx.lightsOn();
             }
@@ -58,15 +58,12 @@ module.exports = function(RED) {
         this.on('input', function (msg) {
             var payload = msg.payload;
 
-            node.log("Received payload: " + JSON.stringify(payload));
-
             this.state = merge(this.state, payload);
 
             setPower(this.state.on);
             setColor(this.state);
 
             var out = {
-                topic: this.topic,
                 payload: this.state
             };
             this.send(out);

@@ -1,9 +1,5 @@
 <script type="text/x-red" data-template-name="lifx">
     <div class="form-row">
-        <label for="node-input-topic"><i class="fa fa-tasks"></i> Topic</label>
-        <input type="text" id="node-input-topic" placeholder="Topic">
-    </div>
-    <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
@@ -26,7 +22,7 @@
     </div>
     <div class="form-row">
         <label for="node-input-whiteColor">White Color</label>
-        <input type="number" id="node-input-whiteColor" placeholder="whiteColor">
+        <input type="text" id="node-input-whiteColor" placeholder="whiteColor">
     </div>
     <div class="form-row">
         <label for="node-input-fadeTime">Fade Time</label>
@@ -54,7 +50,6 @@
         category: 'output',      // the palette category
         defaults: {             // defines the editable properties of the node
             name: {value:""},   //  along with default values.
-            topic: {value:""},
             on: {value: true},
             hue: {value: "0xCC15"},
             saturation: {value: "0xFFFF"},
@@ -63,13 +58,13 @@
             fadeTime: {value: "0x0513"},
             debug: {value: false}
         },
-        color: "#FFFFFF",
+        color: "#9AC8B2",
         inputs:1,               // set the number of inputs - only 0 or 1
         outputs:1,              // set the number of outputs - 0 to n
         // set the icon (held in icons dir below where you save the node)
         icon: "light.png",     // saved in  icons/myicon.png
         label: function() {     // sets the default label contents
-            return this.name||this.topic||"lifx";
+            return this.name||"lifx";
         },
         labelStyle: function() { // sets the class to apply to the label
             return this.name?"node_label_italic":"";
