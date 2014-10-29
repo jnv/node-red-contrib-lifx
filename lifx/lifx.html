@@ -1,0 +1,78 @@
+<script type="text/x-red" data-template-name="lifx">
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-tasks"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Topic">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <br/>
+    <div class="form-row" id="node-on">
+        <label for="node-input-on"><i class="fa fa-power-off"></i> Light On</label>
+        <input type="checkbox" id="node-input-on" style="display: inline-block; width: auto; vertical-align: top;">
+    </div>
+    <div class="form-row">
+        <label for="node-input-hue">Hue</label>
+        <input type="text" id="node-input-hue" placeholder="hue">
+    </div>
+    <div class="form-row">
+        <label for="node-input-saturation">Saturation</label>
+        <input type="text" id="node-input-saturation" placeholder="saturation">
+    </div>
+    <div class="form-row">
+        <label for="node-input-luminance">Luminance</label>
+        <input type="text" id="node-input-luminance" placeholder="luminance">
+    </div>
+    <div class="form-row">
+        <label for="node-input-whiteColor">White Color</label>
+        <input type="number" id="node-input-whiteColor" placeholder="whiteColor">
+    </div>
+    <div class="form-row">
+        <label for="node-input-fadeTime">Fade Time</label>
+        <input type="text" id="node-input-fadeTime" placeholder="fadeTime">
+    </div>
+    <br/>
+    <div class="form-row" id="node-debug">
+        <label for="node-input-once"><i class="fa fa-bug"></i> Debug</label>
+        <input type="checkbox" id="node-input-debug" style="display: inline-block; width: auto; vertical-align: top;">
+    </div>
+</script>
+
+
+<!-- Next, some simple help text is provided for the node.                   -->
+<script type="text/x-red" data-help-name="lifx">
+   <p>Set parameters for Lifx light bulb.</p>
+   <p>Returns current node state.</p>
+   <p><b>msg.payload</b>. msg.payload is an Object.</p>
+</script>
+
+<!-- Finally, the node type is registered along with all of its properties   -->
+<!-- The example below shows a small subset of the properties that can be set-->
+<script type="text/javascript">
+    RED.nodes.registerType('lifx',{
+        category: 'output',      // the palette category
+        defaults: {             // defines the editable properties of the node
+            name: {value:""},   //  along with default values.
+            topic: {value:""},
+            on: {value: true},
+            hue: {value: "0xCC15"},
+            saturation: {value: "0xFFFF"},
+            luminance: {value: "0x8000"},
+            whiteColor: {value: "0x00"},
+            fadeTime: {value: "0x0513"},
+            debug: {value: false}
+        },
+        color: "#FFFFFF",
+        inputs:1,               // set the number of inputs - only 0 or 1
+        outputs:1,              // set the number of outputs - 0 to n
+        // set the icon (held in icons dir below where you save the node)
+        icon: "light.png",     // saved in  icons/myicon.png
+        label: function() {     // sets the default label contents
+            return this.name||this.topic||"lifx";
+        },
+        labelStyle: function() { // sets the class to apply to the label
+            return this.name?"node_label_italic":"";
+        }
+    });
+</script>
