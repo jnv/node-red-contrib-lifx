@@ -6,7 +6,9 @@ With this node you can control [LIFX](http://lifx.co/) light bulbs using [Node-R
 
 ## Firmware Compatibility
 
-This node depends on lifxjs library version 0.1.3, which may not be compatible with the latest version of LIFX firmware. You may try the latest version of lifxjs library, which should be compatible with current firmware.
+This node depends on lifxjs library version 0.2.1, which should be compatible with the latest versions of LIFX firmware (1.5 was tested).
+
+If you use older versions of firmware (probably before 1.2), use version 0.2.x of this package or [v0.2 branch](https://github.com/jnv/node-red-contrib-lifx/tree/v0.2).
 
 ## Installation
 
