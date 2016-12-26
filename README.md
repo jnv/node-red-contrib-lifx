@@ -4,6 +4,10 @@
 
 With this node you can control [LIFX](http://lifx.co/) light bulbs using [Node-RED](http://nodered.org/). The module is mostly a wrapper for unofficial (but great) [lifxjs library](https://github.com/magicmonkey/lifxjs).
 
+## Deprecated
+
+This repository is not maintained anymore, but it lives on in [node-red-contrib-lifx2](https://www.npmjs.com/package/node-red-contrib-lifx2) by [Diego Pamio](https://github.com/diegopamio).
+
 ## Firmware Compatibility
 
 This node depends on lifxjs library version 0.2.1, which should be compatible with the latest versions of LIFX firmware (1.5 was tested).
